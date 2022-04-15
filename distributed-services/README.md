@@ -15,3 +15,11 @@ curl -X GET localhost:8080 -d '{"offset": 1}'
 
 curl -X GET localhost:8080 -d '{"offset": 2}'
 ```
+
+## chapter 2
+
+get protobuf
+
+```shell
+go get google.golang.org/protobuf/...@v1.28.0
+```

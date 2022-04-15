@@ -40,7 +40,7 @@ type ProduceResponse struct {
 }
 
 type ConsumeRequest struct {
-	Offset uint64 `json"offset"`
+	Offset uint64 `json:"offset"`
 }
 
 type ConsumeResponse struct {

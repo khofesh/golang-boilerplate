@@ -49,3 +49,10 @@ curl --location --request POST 'localhost:8080/api/v1/comment' -v \
     }'
 
 ```
+
+integration testing
+
+```shell
+go test -tags=integration ./... -v
+
+```

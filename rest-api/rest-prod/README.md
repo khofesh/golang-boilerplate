@@ -35,3 +35,17 @@ delete comment
 ```shell
 curl --location --request DELETE 'localhost:8080/api/v1/comment/96c43014-9208-4901-926e-6a7f82843597'
 ```
+
+auth header
+
+```shell
+curl --location --request POST 'localhost:8080/api/v1/comment' -v \
+    --header 'Content-Type: application/json' \
+    --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.7fKsho4l39TKxWFjDzo-zAdNI5wFMn2-wqBCDfEuYA4' \
+    --data-raw '{
+        "slug": "hello",
+        "body": "body",
+        "author": "me"
+    }'
+
+```

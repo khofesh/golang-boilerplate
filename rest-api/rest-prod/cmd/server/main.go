@@ -1,7 +1,9 @@
 package main
 
 import (
+	"context"
 	"fmt"
+	"rest-prod/internal/comment"
 	"rest-prod/internal/db"
 )
 
@@ -24,6 +26,9 @@ func Run() error {
 	}
 
 	fmt.Println("successfully connected and pinged the database")
+
+	cmtService := comment.NewService(db)
+	fmt.Println(cmtService.GetComment(context.Background(), "1"))
 
 	return nil
 }

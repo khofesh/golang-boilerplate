@@ -86,9 +86,9 @@ func (i *index) Close() error {
   takes in an offset and returns the associated record’s
   position in the store.
 */
-func (i *index) Read(in int64) (out uint32, pos, uint64, err error) {
+func (i *index) Read(in int64) (out uint32, pos uint64, err error) {
 	if i.size == 0 {
-		return 0, 0, io.EOF
+		return uint32(0), 0, io.EOF
 	}
 
 	if in == -1 {

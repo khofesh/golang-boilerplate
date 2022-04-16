@@ -3,17 +3,29 @@
 package tests
 
 import (
+	"fmt"
 	"testing"
 
+	"github.com/dgrijalva/jwt-go"
 	"github.com/go-resty/resty/v2"
 	"github.com/stretchr/testify/assert"
 )
+
+func createToken() string {
+	token := jwt.New(jwt.SigningMethodHS256)
+	tokenString, err := token.SignedString([]byte("TheDarkKnightRises"))
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return tokenString
+}
 
 func TestPostComment(t *testing.T) {
 	t.Run("can post comment", func(t *testing.T) {
 		client := resty.New()
 		resp, err := client.R().
-			SetHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.7fKsho4l39TKxWFjDzo-zAdNI5wFMn2-wqBCDfEuYA4").
+			SetHeader("Authorization", "Bearer "+createToken()).
 			SetBody(`{"slug": "/", "author": "jane", "body": "hello"}`).
 			Post("http://localhost:8080/api/v1/comment")
 		assert.NoError(t, err)

@@ -5,6 +5,8 @@
 run the server
 
 ```shell
+cd proglog
+
 go run cmd/server/main.go
 ```
 
@@ -53,3 +55,9 @@ go get -u github.com/tysonmote/gommap
 ```
 
 https://command-not-found.com/bzr.bzr
+
+run test
+
+```shell
+make test
+```

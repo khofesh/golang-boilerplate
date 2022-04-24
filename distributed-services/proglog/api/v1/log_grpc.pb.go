@@ -23,7 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type LogClient interface {
 	Produce(ctx context.Context, in *ProduceRequest, opts ...grpc.CallOption) (*ProduceResponse, error)
-	Consume(ctx context.Context, in *ConsumeRequest, opts ...grpc.CallOption) (*ConsumeRequest, error)
+	Consume(ctx context.Context, in *ConsumeRequest, opts ...grpc.CallOption) (*ConsumeResponse, error)
 	ConsumeStream(ctx context.Context, in *ConsumeRequest, opts ...grpc.CallOption) (Log_ConsumeStreamClient, error)
 	ProduceStream(ctx context.Context, opts ...grpc.CallOption) (Log_ProduceStreamClient, error)
 }
@@ -45,8 +45,8 @@ func (c *logClient) Produce(ctx context.Context, in *ProduceRequest, opts ...grp
 	return out, nil
 }
 
-func (c *logClient) Consume(ctx context.Context, in *ConsumeRequest, opts ...grpc.CallOption) (*ConsumeRequest, error) {
-	out := new(ConsumeRequest)
+func (c *logClient) Consume(ctx context.Context, in *ConsumeRequest, opts ...grpc.CallOption) (*ConsumeResponse, error) {
+	out := new(ConsumeResponse)
 	err := c.cc.Invoke(ctx, "/log.v1.Log/Consume", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -122,7 +122,7 @@ func (x *logProduceStreamClient) Recv() (*ProduceResponse, error) {
 // for forward compatibility
 type LogServer interface {
 	Produce(context.Context, *ProduceRequest) (*ProduceResponse, error)
-	Consume(context.Context, *ConsumeRequest) (*ConsumeRequest, error)
+	Consume(context.Context, *ConsumeRequest) (*ConsumeResponse, error)
 	ConsumeStream(*ConsumeRequest, Log_ConsumeStreamServer) error
 	ProduceStream(Log_ProduceStreamServer) error
 	mustEmbedUnimplementedLogServer()
@@ -135,7 +135,7 @@ type UnimplementedLogServer struct {
 func (UnimplementedLogServer) Produce(context.Context, *ProduceRequest) (*ProduceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Produce not implemented")
 }
-func (UnimplementedLogServer) Consume(context.Context, *ConsumeRequest) (*ConsumeRequest, error) {
+func (UnimplementedLogServer) Consume(context.Context, *ConsumeRequest) (*ConsumeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Consume not implemented")
 }
 func (UnimplementedLogServer) ConsumeStream(*ConsumeRequest, Log_ConsumeStreamServer) error {

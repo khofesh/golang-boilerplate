@@ -57,6 +57,15 @@ func setupTest(t *testing.T, fn func(*Config)) (
 	)
 	require.NoError(t, err)
 
+	serverTLSConfig, err := config.SetupTLSConfig(config.TLSConfig{
+		CertFile:      config.ServerCertFile,
+		KeyFile:       config.ServerKeyFile,
+		CAFile:        config.CAFile,
+		ServerAddress: l.Addr().String(),
+	})
+	require.NoError(t, err)
+	serverCreds := credentials.NewTLS(serverTLSConfig)
+
 	dir, err := ioutil.TempDir("", "server-test")
 	require.NoError(t, err)
 
@@ -69,7 +78,7 @@ func setupTest(t *testing.T, fn func(*Config)) (
 	if fn != nil {
 		fn(cfg)
 	}
-	server, err := NewGRPCServer(cfg)
+	server, err := NewGRPCServer(cfg, grpc.Creds(serverCreds))
 	require.NoError(t, err)
 
 	go func() {

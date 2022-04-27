@@ -7,6 +7,7 @@ require (
 	github.com/cloudflare/cfssl v1.6.1 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
+	github.com/hashicorp/serf v0.9.7 // indirect
 	github.com/stretchr/testify v1.7.1 // indirect
 	github.com/tysonmote/gommap v0.0.1 // indirect
 	go.opencensus.io v0.23.0 // indirect

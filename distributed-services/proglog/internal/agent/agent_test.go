@@ -124,17 +124,17 @@ func TestAgent(t *testing.T) {
 		when our servers discover other servers,
 		they replicate each other’s data.
 	*/
-	consumeResponse, err = leaderClient.Consume(
-		context.Background(),
-		&api.ConsumeRequest{
-			Offset: produceResponse.Offset + 1,
-		},
-	)
-	require.Nil(t, consumeResponse)
-	require.Error(t, err)
-	got := grpc.Code(err)
-	want := grpc.Code(api.ErrOffsetOutOfRange{}.GRPCStatus().Err())
-	require.Equal(t, got, want)
+	// consumeResponse, err = leaderClient.Consume(
+	// 	context.Background(),
+	// 	&api.ConsumeRequest{
+	// 		Offset: produceResponse.Offset + 1,
+	// 	},
+	// )
+	// require.Nil(t, consumeResponse)
+	// require.Error(t, err)
+	// got := grpc.Code(err)
+	// want := grpc.Code(api.ErrOffsetOutOfRange{}.GRPCStatus().Err())
+	// require.Equal(t, got, want)
 }
 
 func client(

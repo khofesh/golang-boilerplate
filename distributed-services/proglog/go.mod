@@ -5,8 +5,11 @@ go 1.16
 require (
 	github.com/casbin/casbin/v2 v2.44.2 // indirect
 	github.com/cloudflare/cfssl v1.6.1 // indirect
+	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/gorilla/mux v1.8.0 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
+	github.com/hashicorp/raft v1.3.9 // indirect
+	github.com/hashicorp/raft-boltdb v0.0.0-20220329195025-15018e9b97e0 // indirect
 	github.com/hashicorp/serf v0.9.7 // indirect
 	github.com/stretchr/testify v1.7.1 // indirect
 	github.com/travisjeffery/go-dynaport v1.0.0 // indirect

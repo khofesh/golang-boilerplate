@@ -23,3 +23,11 @@ result
     server_test.go:60: traces log file: /tmp/traces-443977549.log
 
 ```
+
+## raft
+
+turns out the following line is still needed, otherwise the test will fail.
+
+```shell
+go mod edit -replace github.com/hashicorp/raft-boltdb=github.com/travisjeffery/raft-boltdb@v1.0.0
+```

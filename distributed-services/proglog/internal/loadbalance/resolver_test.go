@@ -56,8 +56,12 @@ func TestResolver(t *testing.T) {
 
 	_, err = r.Build(
 		resolver.Target{
+			Endpoint: l.Addr().String(),
+			Scheme:   loadbalance.Name,
 			URL: url.URL{
-				Host: l.Addr().String(),
+				Scheme: loadbalance.Name,
+				Host:   l.Addr().String(),
+				Path:   "/",
 			},
 		},
 		conn,

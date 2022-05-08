@@ -31,7 +31,7 @@ func TestAgent(t *testing.T) {
 
 	peerTLSConfig, err := config.SetupTLSConfig(config.TLSConfig{
 		CertFile:      config.RootClientCertFile,
-		KeyFile:       config.RootclientKeyFile,
+		KeyFile:       config.RootClientKeyFile,
 		CAFile:        config.CAFile,
 		Server:        false,
 		ServerAddress: "127.0.0.1",

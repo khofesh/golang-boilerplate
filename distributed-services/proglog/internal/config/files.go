@@ -10,7 +10,7 @@ var (
 	ServerCertFile       = configFile("server.pem")
 	ServerKeyFile        = configFile("server-key.pem")
 	RootClientCertFile   = configFile("root-client.pem")
-	RootclientKeyFile    = configFile("root-client-key.pem")
+	RootClientKeyFile    = configFile("root-client-key.pem")
 	NobodyClientCertFile = configFile("nobody-client.pem")
 	NobodyClientKeyFile  = configFile("nobody-client-key.pem")
 	ACLModelFile         = configFile("model.conf")

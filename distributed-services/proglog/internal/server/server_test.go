@@ -79,7 +79,7 @@ func setupTest(t *testing.T, fn func(*Config)) (
 		t,
 		l,
 		config.RootClientCertFile,
-		config.RootclientKeyFile,
+		config.RootClientKeyFile,
 	)
 
 	var nobodyConn *grpc.ClientConn

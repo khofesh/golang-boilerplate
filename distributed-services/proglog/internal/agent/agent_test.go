@@ -63,7 +63,7 @@ func TestAgent(t *testing.T) {
 			RPCPort:         rpcPort,
 			DataDir:         dataDir,
 			ACLModelFile:    config.ACLModelFile,
-			ACLPolicyFile:   config.ALCPolicyFile,
+			ACLPolicyFile:   config.ACLPolicyFile,
 			ServerTLSConfig: serverTLSConfig,
 			PeerTLSConfig:   peerTLSConfig,
 			Bootstrap:       i == 0,

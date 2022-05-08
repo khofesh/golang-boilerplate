@@ -106,7 +106,7 @@ func setupTest(t *testing.T, fn func(*Config)) (
 	clog, err := log.NewLog(dir, log.Config{})
 	require.NoError(t, err)
 
-	authorizer := auth.New(config.ACLModelFile, config.ALCPolicyFile)
+	authorizer := auth.New(config.ACLModelFile, config.ACLPolicyFile)
 
 	var telemetryExporter *exporter.LogExporter
 	if *debug {

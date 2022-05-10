@@ -146,3 +146,63 @@ https://minikube.sigs.k8s.io/docs/commands/start/
 https://minikube.sigs.k8s.io/docs/start/
 
 **I prefer the latter**
+
+## build the docker image
+
+```shell
+minikube start
+eval $(minikube -p minikube docker-env)
+make build-docker
+```
+
+## helm
+
+```shell
+sudo snap install helm --classic
+```
+
+https://helm.sh/docs/intro/install/
+
+install nginx
+
+```shell
+helm install my-nginx bitnami/nginx --set service.type=NodePort
+NAME: my-nginx
+LAST DEPLOYED: Tue May 10 09:05:08 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+CHART NAME: nginx
+CHART VERSION: 10.2.1
+APP VERSION: 1.21.6
+
+** Please be patient while the chart is being deployed **
+
+NGINX can be accessed through the following DNS name from within your cluster:
+
+    my-nginx.default.svc.cluster.local (port 80)
+
+To access NGINX from outside the cluster, follow the steps below:
+
+1. Get the NGINX URL by running these commands:
+
+    export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services my-nginx)
+    export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+    echo "http://${NODE_IP}:${NODE_PORT}"
+```
+
+confirm if the nginx is running:
+
+```shell
+export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services my-nginx)
+
+export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+
+echo "http://${NODE_IP}:${NODE_PORT}"
+
+curl "http://${NODE_IP}:${NODE_PORT}"
+```
+
+https://stackoverflow.com/a/65653598

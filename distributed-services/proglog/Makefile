@@ -1,3 +1,4 @@
+TAG ?= 0.0.1
 CONFIG_PATH=${HOME}/.proglog/
 
 $(CONFIG_PATH)/model.conf:
@@ -55,3 +56,6 @@ compile:
 		--go_opt=paths=source_relative \
 		--go-grpc_opt=paths=source_relative \
 		--proto_path=.
+
+build-docker:
+	docker build -t khofesh/proglog:$(TAG) .

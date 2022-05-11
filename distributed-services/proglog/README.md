@@ -206,3 +206,4 @@ curl "http://${NODE_IP}:${NODE_PORT}"
 ```
 
 https://stackoverflow.com/a/65653598
+https://docs.bitnami.com/kubernetes/get-started-kubernetes/

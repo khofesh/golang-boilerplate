@@ -17,8 +17,11 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials"
+	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/peer"
 	"google.golang.org/grpc/status"
+
+	healthpb "google.golang.org/grpc/health/grpc_health_v1"
 )
 
 type Config struct {
@@ -74,6 +77,15 @@ func NewGRPCServer(config *Config, grpcOpts ...grpc.ServerOption) (
 	)
 
 	gsrv := grpc.NewServer(grpcOpts...)
+
+	// supports the health check protocol
+	hsrv := health.NewServer()
+	// We set its serving status as serving
+	// so that the probe knows the service is alive and
+	// ready to accept connections
+	hsrv.SetServingStatus("", healthpb.HealthCheckResponse_SERVING)
+	healthpb.RegisterHealthServer(gsrv, hsrv)
+
 	srv, err := newgrpcServer(config)
 
 	if err != nil {

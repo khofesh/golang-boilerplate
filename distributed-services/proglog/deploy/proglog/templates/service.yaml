@@ -1,15 +1,22 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "proglog.fullname" . }}
-  labels:
-    {{- include "proglog.labels" . | nindent 4 }}
+  name: { { include "proglog.fullname" . } }
+  namespace: { { .Release.Namespace } }
+  labels: { { include "proglog.labels" . | nindent 4 } }
 spec:
-  type: {{ .Values.service.type }}
+  clusterIP: None
+  publishNotReadyAddresses: true
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
-  selector:
-    {{- include "proglog.selectorLabels" . | nindent 4 }}
+    - name: rpc
+      port: { { .Values.rpcPort } }
+      targetPort: { { .Values.rpcPort } }
+    - name: serf-tcp
+      protocol: "TCP"
+      port: { { .Values.serfPort } }
+      targetPort: { { .Values.serfPort } }
+    - name: serf-udp
+      protocol: "UDP"
+      port: { { .Values.serfPort } }
+      targetPort: { { .Values.serfPort } }
+  selector: { { include "proglog.selectorLabels" . | nindent 4 } }

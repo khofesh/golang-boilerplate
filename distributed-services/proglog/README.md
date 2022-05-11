@@ -207,3 +207,33 @@ curl "http://${NODE_IP}:${NODE_PORT}"
 
 https://stackoverflow.com/a/65653598
 https://docs.bitnami.com/kubernetes/get-started-kubernetes/
+
+## install proglog helm chart
+
+in vscode disable `insertSpaces`:
+
+```json
+"[yaml]": {
+  "editor.insertSpaces": false,
+  "editor.tabSize": 2,
+  "editor.autoIndent": false,
+  "gitlens.codeLens.scopes": ["document"],
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  }
+}
+```
+
+deploy
+
+```shell
+[fahmad@ryzen proglog]$ helm install proglog deploy/proglog
+NAME: proglog
+LAST DEPLOYED: Wed May 11 11:29:13 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```

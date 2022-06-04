@@ -11,3 +11,12 @@ func CalculateIsArmstrong(n int) bool {
 	c := n % 10
 	return n == int(math.Pow(float64(a), 3)+math.Pow(float64(b), 3)+math.Pow(float64(c), 3))
 }
+
+// RandomFunction
+func RandomFunction(n int) bool {
+	if n > 10 {
+		return true
+	} else {
+		return false
+	}
+}

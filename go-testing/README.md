@@ -82,3 +82,9 @@ testMain
 ```shell
 go test yamltohtml/yamltohtml_test.go -v
 ```
+
+testify mock
+
+```shell
+go test service/service_test.go -v
+```

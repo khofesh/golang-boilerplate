@@ -3,11 +3,7 @@ package linting
 import "fmt"
 
 func checkFlag(flag bool) bool {
-	if flag == true {
-		return true
-	} else {
-		return false
-	}
+	return flag
 }
 
 func errChecking() (int, error) {

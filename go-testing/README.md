@@ -76,3 +76,9 @@ formatting
 ```shell
 gofmt -s -w .
 ```
+
+testMain
+
+```shell
+go test yamltohtml/yamltohtml_test.go -v
+```

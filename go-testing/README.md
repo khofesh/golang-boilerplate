@@ -35,3 +35,44 @@ ok  	go-test/calculator	1.262s
 PASS
 ok  	go-test/yamltohtml	0.004s
 ```
+
+golangci-lint
+
+https://golangci-lint.run/usage/install/
+
+```shell
+# binary will be $(go env GOPATH)/bin/golangci-lint
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.46.2
+
+golangci-lint --version
+```
+
+lint
+
+```shell
+golangci-lint run
+```
+
+lint result
+
+```shell
+[fahmad@ryzen go-testing]$ golangci-lint run
+linting/lint.go:5:6: `checkFlag` is unused (deadcode)
+func checkFlag(flag bool) bool {
+     ^
+linting/lint.go:13:6: `errChecking` is unused (deadcode)
+func errChecking() (int, error) {
+     ^
+linting/lint.go:6:5: S1002: should omit comparison to bool constant, can be simplified to `flag` (gosimple)
+	if flag == true {
+	   ^
+linting/lint.go:14:2: ineffectual assignment to a (ineffassign)
+	a := 1
+	^
+```
+
+formatting
+
+```shell
+gofmt -s -w .
+```

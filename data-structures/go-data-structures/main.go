@@ -55,10 +55,35 @@ func priorityQueueSection() {
 	fmt.Println(queue)
 }
 
+func stackSection() {
+	fmt.Println("Stacks Section")
+
+	stack := Stack{}
+	stack.Push(1)
+	stack.Push(2)
+	stack.Push(3)
+
+	peek1, _ := stack.Peek()
+	fmt.Println(peek1)
+
+	fmt.Println(stack.Length())
+
+	elem1, _ := stack.Pop()
+	fmt.Println(elem1)
+	elem2, _ := stack.Pop()
+	fmt.Println(elem2)
+	elem3, _ := stack.Pop()
+	fmt.Println(elem3)
+
+	fmt.Println(stack.IsEmpty())
+}
+
 func main() {
 	setsSection()
 
 	queuesSection()
 
 	priorityQueueSection()
+
+	stackSection()
 }

@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func setsSection() {
-	fmt.Println("Sets")
+	fmt.Println("Sets Section")
 	planets := NewSet()
 
 	planets.Add("Earth")
@@ -19,9 +19,7 @@ func setsSection() {
 	fmt.Println(planets.Contains("Mars"))
 }
 
-func main() {
-	// setsSection()
-
+func queuesSection() {
 	fmt.Println("Queues Section")
 
 	queue := Queue{}
@@ -34,4 +32,33 @@ func main() {
 	elem, _ := queue.Dequeue()
 	fmt.Println(elem)
 	fmt.Println(queue)
+}
+
+func priorityQueueSection() {
+	fmt.Println("Priority Queue")
+
+	queue := PriorityQueue{}
+	queue.Enqueue(1, true)
+	fmt.Println(queue)
+	queue.Enqueue(10, false)
+	fmt.Println(queue)
+
+	elem, _ := queue.Dequeue()
+	fmt.Println(elem)
+	fmt.Println(queue)
+
+	queue.Enqueue(2, true)
+	fmt.Println(queue)
+
+	elem, _ = queue.Dequeue()
+	fmt.Println(elem)
+	fmt.Println(queue)
+}
+
+func main() {
+	setsSection()
+
+	queuesSection()
+
+	priorityQueueSection()
 }

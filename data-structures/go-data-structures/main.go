@@ -86,4 +86,17 @@ func main() {
 	priorityQueueSection()
 
 	stackSection()
+
+	fmt.Println("Singly Linked list")
+	var ll LinkedList
+
+	ll.Insert("one")
+	ll.Insert("two")
+	ll.Insert("three")
+	ll.List()
+
+	ll.Delete("two")
+	ll.List()
+
+	fmt.Println(ll.Size)
 }

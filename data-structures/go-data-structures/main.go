@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func setsSection() {
 	fmt.Println("Sets")
 	planets := NewSet()
 
@@ -17,4 +17,21 @@ func main() {
 	planets.List()
 
 	fmt.Println(planets.Contains("Mars"))
+}
+
+func main() {
+	// setsSection()
+
+	fmt.Println("Queues Section")
+
+	queue := Queue{}
+	fmt.Println(queue)
+	queue.Enqueue(1)
+	fmt.Println(queue)
+	queue.Enqueue(2)
+	fmt.Println(queue)
+
+	elem, _ := queue.Dequeue()
+	fmt.Println(elem)
+	fmt.Println(queue)
 }

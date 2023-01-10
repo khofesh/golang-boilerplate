@@ -10,3 +10,4 @@ rest api, microservice, and worker
 - https://github.com/khofesh/graphpql-in-golang
 - https://github.com/khofesh/grpc-in-golang
 - https://github.com/khofesh/kitinyi-go
+- https://github.com/khofesh/build-go-module

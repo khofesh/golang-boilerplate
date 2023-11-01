@@ -19,7 +19,7 @@ func (l *LinkedList) prepend(n *Node) {
 	l.length++
 }
 
-func (l *LinkedList) printList() {
+func (l LinkedList) printList() {
 	temp := l.head
 	if temp == nil {
 		fmt.Print("empty")

@@ -101,7 +101,7 @@ func main() {
 	// m.Extract()
 	// fmt.Println(m)
 
-	for i := 0; i < 5; i++ {
+	for i := 0; i < len(buildHeap)-1; i++ {
 		m.Extract()
 		fmt.Println(m)
 	}

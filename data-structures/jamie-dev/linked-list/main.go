@@ -40,10 +40,16 @@ func main() {
 	node1 := &Node{data: 1}
 	node2 := &Node{data: 2}
 	node3 := &Node{data: 3}
+	node4 := &Node{data: 4}
+	node5 := &Node{data: 5}
+	node6 := &Node{data: 6}
 
 	aList.prepend(node1)
 	aList.prepend(node2)
 	aList.prepend(node3)
+	aList.prepend(node4)
+	aList.prepend(node5)
+	aList.prepend(node6)
 
 	aList.printList()
 }
